@@ -39,13 +39,12 @@ import android.view.ViewGroup;
 
 import org.apache.cordova.*;
 
-import com.ngigroup.adstir.AdstirTerminate;
-import com.ngigroup.adstir.AdstirView;
+import com.ad_stir.AdstirTerminate;
+import com.ad_stir.AdstirView;
 
 public class AdStirPhoneGapSample extends DroidGap {
 	private AdstirView adstirView;
 	ViewGroup layout = null;
-	static final int spotNo = 枠No; // 枠Noは利用するアプリの枠Noを指定してください。
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,7 @@ public class AdStirPhoneGapSample extends DroidGap {
 		super.loadUrl("file:///android_asset/www/index.html");
 		// onCreate()にここから
 		layout = this.root; // 先ほどレイアウトに追加したidを指定してください。
-		adstirView = new AdstirView(this, spotNo);
+		adstirView = new AdstirView(this, "MEDIA-ID", SPOT-NO);
 		layout.addView(adstirView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 		// ここまでを追加
 	}
@@ -63,41 +62,8 @@ public class AdStirPhoneGapSample extends DroidGap {
 		super.onDestroy();
 
 		// onDestroy()にここから
-		new AdstirTerminate(this);
+		AdstirTerminate.init(this);
 		// ここまでを追加
 	}
 
-	// AdstirViewのstopメソッドを実行することにより、不要な通信を抑えることが出来ます。
-	@Override
-	protected void onPause() {
-		super.onPause();
-
-		// onPause()にここから
-		adstirView.stop();
-		ViewGroup parent = (ViewGroup) adstirView.getParent();
-		if (parent != null) {
-			parent.removeView(adstirView);
-		}
-		// ここまでを追加
-	}
-
-	// AdstirViewのstartメソッドを実行することにより、通信を再開することが出来ます。
-	@Override
-	protected void onResume() {
-		super.onResume();
-
-		// onResume()にここから
-		int index = 0;
-		while (layout.getChildAt(index) != null) {
-			if (layout.getChildAt(index) == adstirView) {
-				return;
-			}
-			index++;
-		}
-		adstirView = null;
-		adstirView = new AdstirView(this, spotNo);
-		layout.addView(adstirView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-		adstirView.start();
-		// ここまでを追加
-	}
 }

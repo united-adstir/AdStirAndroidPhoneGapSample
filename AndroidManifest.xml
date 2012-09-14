@@ -70,7 +70,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="ADSTIR_APP_ID" android:value="管理画面で発行されたメディアID" />
     </application>
 
 </manifest> 
