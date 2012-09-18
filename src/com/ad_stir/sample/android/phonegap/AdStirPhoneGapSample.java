@@ -43,27 +43,26 @@ import com.ad_stir.AdstirTerminate;
 import com.ad_stir.AdstirView;
 
 public class AdStirPhoneGapSample extends DroidGap {
-	private AdstirView adstirView;
-	ViewGroup layout = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		super.loadUrl("file:///android_asset/www/index.html");
-		// onCreate()にここから
-		layout = this.root; // 先ほどレイアウトに追加したidを指定してください。
-		adstirView = new AdstirView(this, "MEDIA-ID", SPOT-NO);
+		
+		// AdstirView onCreate()
+		ViewGroup layout = this.root;
+		AdstirView adstirView = new AdstirView(this, "MEDIA-ID", SPOT-NO);
 		layout.addView(adstirView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-		// ここまでを追加
+		//  / AdstirView onCreate()
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
 
-		// onDestroy()にここから
+		// AdstirView onDestroy()
 		AdstirTerminate.init(this);
-		// ここまでを追加
+		//  / AdstirView onDestroy()
 	}
 
 }
