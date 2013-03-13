@@ -18,6 +18,3 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keep public class com.ngigroup.adsta.AdView
--keep public class com.ngigroup.adstir.rtb.RTBView
--keep public class com.ngigroup.adstir.adapters.*  {public *;protected *; private *;}
