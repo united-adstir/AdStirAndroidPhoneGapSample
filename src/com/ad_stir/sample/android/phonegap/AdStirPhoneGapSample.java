@@ -35,7 +35,12 @@
 package com.ad_stir.sample.android.phonegap;
 
 import android.os.Bundle;
+import android.view.ViewGroup;
+
 import org.apache.cordova.*;
+
+import com.ad_stir.AdstirTerminate;
+import com.ad_stir.AdstirView;
 
 public class AdStirPhoneGapSample extends DroidGap
 {
