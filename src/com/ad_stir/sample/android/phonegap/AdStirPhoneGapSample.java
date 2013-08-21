@@ -39,8 +39,7 @@ import android.view.ViewGroup;
 
 import org.apache.cordova.*;
 
-import com.ad_stir.AdstirTerminate;
-import com.ad_stir.AdstirView;
+import com.ad_stir.webview.AdstirWebView;
 
 public class AdStirPhoneGapSample extends DroidGap
 {
@@ -52,20 +51,11 @@ public class AdStirPhoneGapSample extends DroidGap
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
         
-        // AdstirView onCreate()
+		AdstirWebView view = new AdstirWebView(this, "MEDIA-ID", SPOT-NO,AdstirWebView.DEFAULT_INTERVAL);
+        
         ViewGroup layout = this.root;
-        AdstirView adstirView = new AdstirView(this, "MEDIA-ID", SPOT-NO);
-        layout.addView(adstirView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        //  / AdstirView onCreate()
+        layout.addView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-        // AdstirView onDestroy()
-        AdstirTerminate.init(this);
-        //  / AdstirView onDestroy()
-    }
 }
 
