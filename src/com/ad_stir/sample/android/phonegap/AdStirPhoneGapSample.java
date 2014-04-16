@@ -39,7 +39,7 @@ import android.view.ViewGroup;
 
 import org.apache.cordova.*;
 
-import com.ad_stir.webview.AdstirWebView;
+import com.ad_stir.webview.AdstirMraidView;
 
 public class AdStirPhoneGapSample extends DroidGap
 {
@@ -51,7 +51,7 @@ public class AdStirPhoneGapSample extends DroidGap
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
         
-		AdstirWebView view = new AdstirWebView(this, "MEDIA-ID", SPOT-NO,AdstirWebView.DEFAULT_INTERVAL);
+        AdstirMraidView view = new AdstirMraidView(this, "MEDIA-ID", SPOT-NO, AdstirMraidView.AdSize.Size320x50,AdstirWebView.DEFAULT_INTERVAL);
         
         ViewGroup layout = this.root;
         layout.addView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
