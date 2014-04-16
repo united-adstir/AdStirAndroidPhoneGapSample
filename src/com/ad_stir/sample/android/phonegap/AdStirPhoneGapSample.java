@@ -51,7 +51,7 @@ public class AdStirPhoneGapSample extends DroidGap
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
         
-        AdstirMraidView view = new AdstirMraidView(this, "MEDIA-ID", SPOT-NO, AdstirMraidView.AdSize.Size320x50,AdstirWebView.DEFAULT_INTERVAL);
+        AdstirMraidView view = new AdstirMraidView(this, "MEDIA-ID", SPOT-NO, AdstirMraidView.AdSize.Size320x50,AdstirMraidView.DEFAULT_INTERVAL);
         
         ViewGroup layout = this.root;
         layout.addView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
